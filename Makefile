@@ -5,6 +5,7 @@ image:
 
 run:
 	docker run -d --name vpn --privileged -v $(VPN):/etc/openvpn/vpn.ovpn:ro -v $(HOME):/home/$(USER) codekoala/vpn
+	docker exec -it vpn groupadd -f -g `id -g` $(USER)
 	docker exec -it vpn useradd -d /home/$(USER) -g `id -g` -Mu `id -u` -s /bin/bash $(USER)
 
 start:
