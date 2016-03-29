@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec /usr/sbin/sshd -D -e 2>&1
